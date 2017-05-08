@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
     private Button btnBack;
+    private TextView tvMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,18 @@ public class SecondActivity extends AppCompatActivity {
 
             }
         });
+
+        tvMessage = (TextView) findViewById(R.id.tvMessage);
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+
+            String value = extras.getString("MESSAGE");
+
+            tvMessage.setText(value);
+
+        }
 
     }
 }
